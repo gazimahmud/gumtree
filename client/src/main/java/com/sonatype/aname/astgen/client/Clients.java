@@ -18,7 +18,7 @@
  * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
  */
 
-package com.github.gumtreediff.client;
+package com.sonatype.aname.astgen.client;
 
 import com.github.gumtreediff.gen.Registry;
 
@@ -40,7 +40,7 @@ public class Clients extends Registry.NamedRegistry<String, Client, Register> {
     }
 
     @Override
-    protected ClientEntry newEntry(Class<? extends Client> clazz, Register annotation) {
+    protected ClientEntry newEntry(Class<? extends Client> clazz, com.sonatype.aname.astgen.client.Register annotation) {
         return new ClientEntry(clazz, annotation.name(), annotation.description(), annotation.experimental());
     }
 

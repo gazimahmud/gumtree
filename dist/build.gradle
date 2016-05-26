@@ -1,8 +1,22 @@
 apply plugin: 'application'
-
-mainClassName = 'com.github.gumtreediff.client.Run'
+apply plugin: 'gradle-one-jar'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+ 
+}
+task uberjar(type: OneJar) {
+		    mainClass = 'com.github.gumtreediff.client.Run'
+}
+	
+	
+mainClassName = 'com.sonatype.aname.astgen.client.Run'
 applicationName = 'gumtree'
-jar.enabled = false
+jar.enabled = true
 uploadArchives.enabled = false
 
 description = 'GumTree whole distribution.'
@@ -22,3 +36,5 @@ dependencies {
 	compile project(':gen.js')
 	compile project(':gen.ruby')
 }
+
+

@@ -20,7 +20,7 @@
 
 package com.github.gumtreediff.client.diff;
 
-import com.github.gumtreediff.client.Register;
+import com.sonatype.aname.astgen.client.Register;
 import com.github.gumtreediff.client.diff.ui.swing.MappingsPanel;
 import com.github.gumtreediff.matchers.Matcher;
 

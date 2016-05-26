@@ -18,7 +18,7 @@
  * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
  */
 
-package com.github.gumtreediff.client;
+package com.sonatype.aname.astgen.client;
 
 import java.io.IOException;
 import java.io.PrintStream;

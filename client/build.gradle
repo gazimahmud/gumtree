@@ -2,4 +2,10 @@ description = 'GumTree abstract client module.'
 
 dependencies {
 	compile 'org.reflections:reflections:0.9.10'
+	compile 'com.amazonaws:aws-lambda-java-core:1.0.0'
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.github.gumtreediff.client.Run'
+    }
 }

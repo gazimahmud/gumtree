@@ -18,7 +18,7 @@
  * Copyright 2011-2015 Floréal Morandat <florealm@gmail.com>
  */
 
-package com.github.gumtreediff.client;
+package com.sonatype.aname.astgen.client;
 
 import com.github.gumtreediff.gen.Generators;
 import com.github.gumtreediff.gen.Registry;
@@ -71,8 +71,8 @@ public class Run {
 
         reflections.getSubTypesOf(Client.class).forEach(
                 cli -> {
-                    com.github.gumtreediff.client.Register a =
-                            cli.getAnnotation(com.github.gumtreediff.client.Register.class);
+                    Register a =
+                            cli.getAnnotation(Register.class);
                 if (a != null)
                     Clients.getInstance().install(cli, a);
             });

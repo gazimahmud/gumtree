@@ -20,10 +20,10 @@
 
 package com.github.gumtreediff.client.diff;
 
-import com.github.gumtreediff.client.Option;
+import com.sonatype.aname.astgen.client.Option;
 import com.github.gumtreediff.io.TreeIoUtils;
-import com.github.gumtreediff.client.Option;
-import com.github.gumtreediff.client.Register;
+import com.sonatype.aname.astgen.client.Option;
+import com.sonatype.aname.astgen.client.Register;
 import com.github.gumtreediff.io.TreeIoUtils;
 import com.github.gumtreediff.matchers.Matcher;
 

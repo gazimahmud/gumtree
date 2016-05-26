@@ -20,13 +20,10 @@
 
 package com.github.gumtreediff.client.diff;
 
-import com.github.gumtreediff.client.Option;
-import com.github.gumtreediff.client.Register;
+import com.sonatype.aname.astgen.client.Option;
+import com.sonatype.aname.astgen.client.Register;
 import com.github.gumtreediff.client.diff.ui.web.DiffServer;
 import fi.iki.elonen.ServerRunner;
-import com.github.gumtreediff.client.Option;
-import com.github.gumtreediff.client.Register;
-import com.github.gumtreediff.client.diff.ui.web.DiffServer;
 
 @Register(description = "a web diff client", options = WebDiff.Options.class)
 public class WebDiff extends AbstractDiffClient<WebDiff.Options> {
