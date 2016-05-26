@@ -20,9 +20,8 @@
 
 package com.github.gumtreediff.client.diff;
 
-import com.github.gumtreediff.client.Option;
-import com.github.gumtreediff.client.Client;
-import com.github.gumtreediff.client.Option;
+import com.sonatype.aname.astgen.client.Option;
+import com.sonatype.aname.astgen.client.Client;
 import com.github.gumtreediff.gen.Generators;
 import com.github.gumtreediff.matchers.Matcher;
 import com.github.gumtreediff.matchers.Matchers;

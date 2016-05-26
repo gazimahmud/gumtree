@@ -1,3 +1,20 @@
+apply plugin: 'gradle-one-jar'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+ 
+}
+task uberjar(type: OneJar) {
+		    mainClass = 'com.github.gumtreediff.client.Run'
+		}
+	
+		
+
+		
 allprojects {
 	apply plugin: 'idea'
 
@@ -8,8 +25,9 @@ allprojects {
 		mavenCentral()
 		jcenter()
 	}
+	  
 }
-
+ 
 ext.isRelease = !project.version.endsWith("SNAPSHOT")
 
 subprojects {
@@ -68,6 +86,7 @@ configure(subprojects.findAll { it.name.startsWith('gen.antlr') }) {
 evaluationDependsOnChildren();
 
 if (project.hasProperty('mvn')) {
+
 	configure(subprojects.findAll { !(it.name in ['dist', 'benchmark']) }) { subproject ->
 		apply plugin: 'maven'
 		apply plugin: 'signing'
@@ -86,60 +105,13 @@ if (project.hasProperty('mvn')) {
 			archives javadocJar, sourcesJar
 		}
 
+		
+		
         if (project.isRelease && gradle.taskGraph.hasTask("uploadArchives")) {
             signing {
                 sign configurations.archives
             }
         }
 
-		uploadArchives {
-			repositories {
-				mavenDeployer {
-					beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-					repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-						authentication(userName: ossrhUsername, password: ossrhPassword)
-					}
-
-					snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-						authentication(userName: ossrhUsername, password: ossrhPassword)
-					}
-
-					pom.project {
-						name "GumTree ${subproject.name}"
-						description subproject.description
-						url 'https://github.com/GumTreeDiff/gumtree/'
-						packaging 'jar'
-
-						scm {
-							connection 'scm:git:https://github.com/GumTreeDiff/gumtree/'
-							developerConnection 'scm:git:https://github.com/GumTreeDiff/gumtree/'
-							url 'https://github.com/GumTreeDiff/gumtree/'
-						}
-
-						licenses {
-							license {
-								name 'GNU Lesser General Public License v3.0'
-								url 'https://www.gnu.org/copyleft/lesser.html'
-							}
-						}
-
-						developers {
-							developer {
-								id 'jre'
-								name 'Jean-Rémy Falleri'
-								email 'jr.falleri@gmail.com'
-							}
-
-							developer {
-								id 'flop'
-								name 'Floréal Morandat'
-								email 'florealm@gmail.com'
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 }
